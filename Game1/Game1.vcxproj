@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{e8e33062-600a-4866-8225-34cc4ce64cdc}</ProjectGuid>
+    <RootNamespace>Game1</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\GameEngine;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\include;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\GameEngine;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\include;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\GameEngine;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\include;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\GameEngine;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\include;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Game\Units\BubbleUnit.h" />
+    <ClInclude Include="Game\CollisionManager.h" />
+    <ClInclude Include="Game\Attack\CombatAttack.h" />
+    <ClInclude Include="GameEngine\DrawInstructionsInclude.h" />
+    <ClInclude Include="Game\Units\CombatObject.h" />
+    <ClInclude Include="Game\Units\BubbleParticles.h" />
+    <ClInclude Include="Game\Effects\CancelProjectileEffect.h" />
+    <ClInclude Include="Game\Effects\Effect.h" />
+    <ClInclude Include="Game\Units\BlackHoleShot.h" />
+    <ClInclude Include="Game\Units\Body.h" />
+    <ClInclude Include="GameEngine\DrawInstructionsText.h" />
+    <ClInclude Include="Game\AnimatableObject.h" />
+    <ClInclude Include="Game\DrawableObject.h" />
+    <ClInclude Include="Game\Units\BouncyCircle.h" />
+    <ClInclude Include="GameEngine\AudioEngine.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_block_allocator.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_body.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_broad_phase.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_chain_shape.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_circle_shape.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_collision.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_contact.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_contact_manager.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_distance.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_distance_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_draw.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_dynamic_tree.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_edge_shape.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_fixture.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_friction_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_gear_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_growable_stack.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_math.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_motor_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_mouse_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_polygon_shape.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_prismatic_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_pulley_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_revolute_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_rope.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_rope_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_settings.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_shape.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_stack_allocator.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_timer.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_time_of_impact.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_time_step.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_weld_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_wheel_joint.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_world.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\b2_world_callbacks.h" />
+    <ClInclude Include="Game\Lib\box2d\include\box2d\box2d.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_chain_circle_contact.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_chain_polygon_contact.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_circle_contact.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_contact_solver.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_edge_circle_contact.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_edge_polygon_contact.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_island.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_polygon_circle_contact.h" />
+    <ClInclude Include="Game\Lib\box2d\src\dynamics\b2_polygon_contact.h" />
+    <ClInclude Include="Game\UnitEnum.h" />
+    <ClInclude Include="GameEngine\DrawInstructionsEllipse.h" />
+    <ClInclude Include="Game\Units\ColorFlyer.h" />
+    <ClInclude Include="GameEngine\DrawInstructionsPolygon.h" />
+    <ClInclude Include="GameEngine\DrawInstructionsPoint.h" />
+    <ClInclude Include="GameEngine\DrawInstructionsImage.h" />
+    <ClInclude Include="Game\Units\Fixture.h" />
+    <ClInclude Include="GameEngine\GraphicsInterface\Camera.h" />
+    <ClInclude Include="GameEngine\DrawInstructions.h" />
+    <ClInclude Include="framework.h" />
+    <ClInclude Include="GameEngine\BasicWindowMaker\BasicWindowMaker.h" />
+    <ClInclude Include="GameEngine\GameClass\GameClass.h" />
+    <ClInclude Include="GameEngine\GameEngine.h" />
+    <ClInclude Include="GameEngine\GraphicsInterface.h" />
+    <ClInclude Include="GameEngine\HighResolutionTimer\HighResolutionTimer.h" />
+    <ClInclude Include="GameEngine\KeyStateLogger.h" />
+    <ClInclude Include="Game\Game.h" />
+    <ClInclude Include="Game\Units\Player.h" />
+    <ClInclude Include="Game\Lib\RandomColorGetter.h" />
+    <ClInclude Include="Game\GraphicsMap.h" />
+    <ClInclude Include="Game\Units\KillZone.h" />
+    <ClInclude Include="Game\Effects\LaunchPendingProjectileEffect.h" />
+    <ClInclude Include="Game\Effects\MoveUnitEffect.h" />
+    <ClInclude Include="Game\Lib\RectangleMaker.h" />
+    <ClInclude Include="Game\Units\NiceGroundUnit.h" />
+    <ClInclude Include="Game\Lib\Rectangle1.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Game\SoundMap.h" />
+    <ClInclude Include="Game\Units\StaticImageVisualUnit.h" />
+    <ClInclude Include="Game\Effects\SummonBlackHoleShotEffect.h" />
+    <ClInclude Include="Game\Effects\SetUnitAlphaEffect.h" />
+    <ClInclude Include="Game\Effects\SummonButterflyEffect.h" />
+    <ClInclude Include="Game\Effects\SummonProjectileEffect.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="Game\Units\Unit.h" />
+    <ClInclude Include="Game\Units\Wall.h" />
+    <ClInclude Include="Game\Units\TestJoint.h" />
+    <ClInclude Include="Game\VisualUnit.h" />
+    <ClInclude Include="Game\World.h" />
+    <ClInclude Include="Game\Units\UnitBodyIdHolder.h" />
+    <ClInclude Include="Game\TimableObject.h" />
+    <ClInclude Include="Game\TimableObjectEvent.h" />
+    <ClInclude Include="Game\Units\WallBuilderUnit.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game1.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Game1.ico" />
+    <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game\Units\BubbleUnit.cpp" />
+    <ClCompile Include="Game\CollisionManager.cpp" />
+    <ClCompile Include="Game\Attack\CombatAttack.cpp" />
+    <ClCompile Include="Game\Units\CombatObject.cpp" />
+    <ClCompile Include="Game\Units\BubbleParticles.cpp" />
+    <ClCompile Include="Game\Effects\CancelProjectileEffect.cpp" />
+    <ClCompile Include="Game\Effects\Effect.cpp" />
+    <ClCompile Include="Game\Units\BlackHoleShot.cpp" />
+    <ClCompile Include="Game\Units\Body.cpp" />
+    <ClCompile Include="GameEngine\DrawInstructionsText.cpp" />
+    <ClCompile Include="Game\AnimatableObject.cpp" />
+    <ClCompile Include="Game\DrawableObject.cpp" />
+    <ClCompile Include="Game\Units\BouncyCircle.cpp" />
+    <ClCompile Include="GameEngine\AudioEngine.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_broad_phase.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_chain_shape.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_circle_shape.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_collide_circle.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_collide_edge.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_collide_polygon.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_collision.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_distance.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_dynamic_tree.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_edge_shape.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_polygon_shape.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\collision\b2_time_of_impact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\common\b2_block_allocator.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\common\b2_draw.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\common\b2_math.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\common\b2_settings.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\common\b2_stack_allocator.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\common\b2_timer.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_body.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_chain_circle_contact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_chain_polygon_contact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_circle_contact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_contact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_contact_manager.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_contact_solver.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_distance_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_edge_circle_contact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_edge_polygon_contact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_fixture.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_friction_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_gear_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_island.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_motor_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_mouse_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_polygon_circle_contact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_polygon_contact.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_prismatic_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_pulley_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_revolute_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_rope_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_weld_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_wheel_joint.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_world.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\dynamics\b2_world_callbacks.cpp" />
+    <ClCompile Include="Game\Lib\box2d\src\rope\b2_rope.cpp" />
+    <ClCompile Include="GameEngine\DrawInstructionsEllipse.cpp" />
+    <ClCompile Include="Game\Units\ColorFlyer.cpp" />
+    <ClCompile Include="GameEngine\DrawInstructionsPolygon.cpp" />
+    <ClCompile Include="GameEngine\DrawInstructionsPoint.cpp" />
+    <ClCompile Include="GameEngine\DrawInstructionsImage.cpp" />
+    <ClCompile Include="Game\Units\Fixture.cpp" />
+    <ClCompile Include="GameEngine\GraphicsInterface\Camera.cpp" />
+    <ClCompile Include="GameEngine\DrawInstructions.cpp" />
+    <ClCompile Include="GameEngine\BasicWindowMaker\BasicWindowMaker.cpp" />
+    <ClCompile Include="GameEngine\GameClass\GameClass.cpp" />
+    <ClCompile Include="GameEngine\GameEngine.cpp" />
+    <ClCompile Include="GameEngine\GraphicsInterface.cpp" />
+    <ClCompile Include="GameEngine\HighResolutionTimer\HighResolutionTimer.cpp" />
+    <ClCompile Include="GameEngine\KeyStateLogger.cpp" />
+    <ClCompile Include="Game\Game.cpp" />
+    <ClCompile Include="Game\GraphicsMap.cpp" />
+    <ClCompile Include="Game\Units\KillZone.cpp" />
+    <ClCompile Include="Game\Effects\LaunchPendingProjectileEffect.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Game\Units\Unit.cpp" />
+    <ClCompile Include="Game\Units\Wall.cpp" />
+    <ClCompile Include="Game\Units\Player.cpp" />
+    <ClCompile Include="Game\Units\TestJoint.cpp" />
+    <ClCompile Include="Game\Lib\RandomColorGetter.cpp" />
+    <ClCompile Include="Game\SoundMap.cpp" />
+    <ClCompile Include="Game\VisualUnit.cpp" />
+    <ClCompile Include="Game\Units\StaticImageVisualUnit.cpp" />
+    <ClCompile Include="Game\World.cpp" />
+    <ClCompile Include="Game\Units\UnitBodyIdHolder.cpp" />
+    <ClCompile Include="Game\TimableObject.cpp" />
+    <ClCompile Include="Game\TimableObjectEvent.cpp" />
+    <ClCompile Include="Game\Effects\SummonBlackHoleShotEffect.cpp" />
+    <ClCompile Include="Game\Effects\SetUnitAlphaEffect.cpp" />
+    <ClCompile Include="Game\Effects\MoveUnitEffect.cpp" />
+    <ClCompile Include="Game\Units\WallBuilderUnit.cpp" />
+    <ClCompile Include="Game\Lib\RectangleMaker.cpp" />
+    <ClCompile Include="Game\Units\NiceGroundUnit.cpp" />
+    <ClCompile Include="Game\Lib\Rectangle1.cpp" />
+    <ClCompile Include="Game\Effects\SummonButterflyEffect.cpp" />
+    <ClCompile Include="Game\Effects\SummonProjectileEffect.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
