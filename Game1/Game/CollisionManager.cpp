@@ -8,7 +8,7 @@ CollisionManagerCollision::CollisionManagerCollision(int unitId, int bodyId, int
 	_normalForce = normalForce;
 
 	const float MAX_FLOOR_SLOPE_THRESHOLD = 0.5f; // This is the maximum slope of a floor before it is considered a wall and you can't walk up it anymore.
-	const float floorNormalSlopeThreshold = 1.0f / MAX_FLOOR_SLOPE_THRESHOLD;
+	const float FLOOR_NORMAL_SLOPE_THRESHOLD = 1.0f / MAX_FLOOR_SLOPE_THRESHOLD;
 	if (_normalForce.y < 0) {
 		_isCeiling = true;
 		_isFloor = false;
@@ -25,7 +25,7 @@ CollisionManagerCollision::CollisionManagerCollision(int unitId, int bodyId, int
 			_isFloor = true;
 			_isLeftWall = false;
 			_isRightWall = false;
-		} else if (fabsf(_normalForce.y / _normalForce.x) >= floorNormalSlopeThreshold) {
+		} else if (fabsf(_normalForce.y / _normalForce.x) >= FLOOR_NORMAL_SLOPE_THRESHOLD) {
 			_isFloor = true;
 			_isLeftWall = false;
 			_isRightWall = false;
