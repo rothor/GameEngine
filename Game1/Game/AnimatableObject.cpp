@@ -11,7 +11,8 @@ AnimatableObject::AnimatableObject(float pAnimationX, float pAnimationY, float p
 	_animationScale(pAnimationScale),
 	_animationAngle(pAnimationAngle),
 	_animationAlpha(pAnimationAlpha),
-	_animationMap(pAnimation)
+	_animationMap(pAnimation),
+	_animationAngleIsFixed(false)
 {
 
 }
