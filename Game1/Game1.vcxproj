@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\GameEngine;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\include;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>GameEngine;Game;Game\Lib\box2d\include;Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -103,7 +103,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\GameEngine;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\include;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>GameEngine;Game;Game\Lib\box2d\include;Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\GameEngine;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\include;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>GameEngine;Game;Game\Lib\box2d\include;Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -133,7 +133,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\GameEngine;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\include;C:\Users\jowar\My Folder\programming\C++\VS2022\Game1\Game1\Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>GameEngine;Game;Game\Lib\box2d\include;Game\Lib\box2d\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Game\Units\DumpableObject.h" />
     <ClInclude Include="Game\Units\BubbleUnit.h" />
     <ClInclude Include="Game\CollisionManager.h" />
     <ClInclude Include="Game\Attack\CombatAttack.h" />
@@ -231,6 +232,7 @@
     <ClInclude Include="Game\Lib\RectangleMaker.h" />
     <ClInclude Include="Game\Units\NiceGroundUnit.h" />
     <ClInclude Include="Game\Lib\Rectangle1.h" />
+    <ClInclude Include="Game\PhysicsObject.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Game\SoundMap.h" />
     <ClInclude Include="Game\Units\StaticImageVisualUnit.h" />
@@ -257,6 +259,7 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Game\Units\DumpableObject.cpp" />
     <ClCompile Include="Game\Units\BubbleUnit.cpp" />
     <ClCompile Include="Game\CollisionManager.cpp" />
     <ClCompile Include="Game\Attack\CombatAttack.cpp" />
@@ -357,6 +360,7 @@
     <ClCompile Include="Game\Lib\Rectangle1.cpp" />
     <ClCompile Include="Game\Effects\SummonButterflyEffect.cpp" />
     <ClCompile Include="Game\Effects\SummonProjectileEffect.cpp" />
+    <ClCompile Include="Game\PhysicsObject.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

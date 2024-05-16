@@ -18,10 +18,9 @@ public:
 	virtual void onContactBegin(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId, b2Vec2 contactNormal) override;
 	virtual void onContactEnd(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId) override;
 	virtual std::list<DrawInstructions*>* getDrawInstructions() override;
-	virtual void timeStepForGraphics(int microseconds) override;
 	virtual void doEvent(std::wstring event) override;
 	virtual void onDestroy(std::wstring event) override;
-	virtual void timeElapsed(long long microseconds) override;
+	virtual void timeElapsedExtraBehavior(long long microseconds) override;
 	void attack(std::shared_ptr<CombatAttack> combatAttack);
 	void butterflyAttack();
 	void setBlackHoleShotId(int id);

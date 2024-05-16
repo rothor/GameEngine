@@ -25,6 +25,7 @@
 #include "AudioEngine.h"
 #include "DrawableObject.h"
 #include "GameObject.h"
+#include "PhysicsObject.h"
 #include "GraphicsInterface.h"
 #include "KeyStateLogger.h"
 #include "SoundMap.h"

@@ -70,10 +70,6 @@ void Player::setMoveInput(bool left, bool right, bool jump)
 	_inputLeft = left;
 	_inputRight = right;
 	_inputLJump = jump;
-
-	Body* body = Unit::getBody(_bodyId);
-	b2Vec2 v = body->getVelocity();
-	
 }
 
 void Player::onContactBegin(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId, b2Vec2 contactNormal)
@@ -128,33 +124,6 @@ std::list<DrawInstructions*>* Player::getDrawInstructions()
 
 	//v->push_back(new DrawInstructionsText(DrawInstructionsPoint(getPos().x - 1.0f, getPos().y + 1.8f), L"Abraham", L"Georgia", 0.5f, 0.0f, 0xFFFFFF, 1.0f));
 	return v;
-}
-
-void Player::timeStepForGraphics(int microseconds)
-{
-	Unit::timeStepForGraphics(microseconds);
-
-	Body* body = Unit::getBody(_bodyId);
-	Fixture* fixture = body->getFixture(_fixtureId);
-	if (_isAttacking) {
-		if (_isCasting)
-			fixture->chooseAnimation(_castingAnimationId);
-		else
-			fixture->chooseAnimation(_doneCastingAnimationId);
-	} else {
-		if (_isFalling) {
-			fixture->chooseAnimation(_fallingAnimationId);
-		} else if (_isRising) {
-			fixture->chooseAnimation(_risingAnimationId);
-		} else {
-			if (_isIdle)
-				fixture->chooseAnimation(_idleAnimationId);
-			else
-				fixture->chooseAnimation(_runningAnimationId);
-		}
-	}
-
-	_castingEffect.timeStepForGraphics(microseconds);
 }
 
 void Player::doEvent(std::wstring event)
@@ -220,10 +189,8 @@ void Player::onDestroy(std::wstring event)
 	}
 }
 
-void Player::timeElapsed(long long microseconds)
+void Player::timeElapsedExtraBehavior(long long microseconds)
 {
-	TimableObject::timeElapsed(microseconds);
-
 	Body* body = Unit::getBody(_bodyId);
 	Fixture* fixture = body->getFixture(_fixtureId);
 	auto v = body->getVelocity();
@@ -295,6 +262,30 @@ void Player::timeElapsed(long long microseconds)
 	_isIdle = abs(v.x) < 0.0001 && abs(v.y) < 0.0001;
 	_isFalling = v.y < -0.0001;
 	_isRising = v.y > 0.0001;
+
+	// Animations
+	if (_isAttacking) {
+		if (_isCasting)
+			fixture->chooseAnimation(_castingAnimationId);
+		else
+			fixture->chooseAnimation(_doneCastingAnimationId);
+	}
+	else {
+		if (_isFalling) {
+			fixture->chooseAnimation(_fallingAnimationId);
+		}
+		else if (_isRising) {
+			fixture->chooseAnimation(_risingAnimationId);
+		}
+		else {
+			if (_isIdle)
+				fixture->chooseAnimation(_idleAnimationId);
+			else
+				fixture->chooseAnimation(_runningAnimationId);
+		}
+	}
+
+	_castingEffect.timeStepForGraphics(microseconds);
 }
 
 void Player::attack(std::shared_ptr<CombatAttack> combatAttack)

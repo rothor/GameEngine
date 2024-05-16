@@ -3,7 +3,7 @@
 BubbleUnit::BubbleUnit(b2World* world, float x, float y, int id) :
 	Unit(UnitType::Bubble, world, id)
 {
-	_animatedBodyId = Unit::createBody(b2BodyType::b2_dynamicBody, x, y, id);
+	_animatedBodyId = PhysicsObject::createBody(b2BodyType::b2_dynamicBody, x, y, id);
 	Body* body = Unit::getBody(_animatedBodyId);
 
 	std::vector<std::vector<GraphicsEnum>> animation = {

@@ -2,45 +2,15 @@
 
 Unit::Unit(UnitType unitType, b2World* world, int unitId) :
 	_unitType(unitType),
-	_world(world),
 	_debugDraw(false),
-	_unitId(unitId)
+	_unitId(unitId),
+	FlagDestroy(false),
+	FlagIsStatic(false),
+	FlagPlayerControlled(false),
+	_flagShouldDisable(false),
+	PhysicsObject(world)
 {
 	
-}
-
-int Unit::createBody(b2BodyType type, float x, float y, int id)
-{
-	b2BodyDef bodyDef;
-	bodyDef.type = type;
-	bodyDef.position.Set(x, y);
-	b2Body* body = _world->CreateBody(&bodyDef);
-	int bodyId = getNewBodyId();
-	_bodies[bodyId] = Body(body);
-	UnitBodyIdHolder* a = getNewUnitBodyIdHolder(id, bodyId);
-	body->SetUserData(a);
-	return bodyId;
-}
-
-Body* Unit::getBody(int bodyId)
-{
-	return &(_bodies[bodyId]);
-}
-
-int Unit::getNewBodyId()
-{
-	int id = _bodyIdIncrementer;
-	_bodyIdIncrementer++;
-	return id;
-}
-
-UnitBodyIdHolder* Unit::getNewUnitBodyIdHolder(int unitId, int bodyId)
-{
-	UnitBodyIdHolder* a = new UnitBodyIdHolder();
-	a->bodyId = bodyId;
-	a->unitId = unitId;
-	_idHolderList.push_back(std::unique_ptr<UnitBodyIdHolder>(a));
-	return a;
 }
 
 void Unit::addEffectToQueue(Effect* effect)
@@ -48,22 +18,31 @@ void Unit::addEffectToQueue(Effect* effect)
 	_effectList.push_back(effect);
 }
 
-std::list<DrawInstructions*>* Unit::getDrawInstructions()
+void Unit::onContactBeginBasicBehavior(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId, b2Vec2 contactNormal)
 {
-	std::list<DrawInstructions*>* diList = new std::list<DrawInstructions*>{};
-	for (auto& pair : _bodies) {
-		auto bodyDi = pair.second.getDrawInstructions();
-		diList->insert(diList->end(), bodyDi->begin(), bodyDi->end());
-		delete bodyDi;
-	}
-	return diList;
+	CollisionManager::addCollision(otherUnit->getId(), otherBodyId, otherFixtureId, contactNormal);
+	Unit::onContactBegin(otherUnit, otherBodyId, otherFixtureId, thisBodyId, thisFixtureId, contactNormal);
 }
 
-void Unit::destroy()
+void Unit::onContactBegin(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId, b2Vec2 contactNormal)
 {
-	for (auto& pair : _bodies) {
-		pair.second.destroy();
-	}
+	// Do nothing by default. Child classes can override this.
+}
+
+void Unit::onContactEndBasicBehavior(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId)
+{
+	CollisionManager::removeCollision(otherUnit->getId(), otherBodyId, otherFixtureId);
+	Unit::onContactEnd(otherUnit, otherBodyId, otherFixtureId, thisBodyId, thisFixtureId);
+}
+
+void Unit::onContactEnd(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId)
+{
+	// Do nothing by default. Child classes can override this.
+}
+
+std::list<DrawInstructions*>* Unit::getDrawInstructions()
+{
+	return PhysicsObject::getDrawInstructions();
 }
 
 UnitType Unit::getUnitType()
@@ -88,75 +67,36 @@ void Unit::addSoundToQueue(SoundEnum sound)
 	_soundIdQueue.push_back(sound);
 }
 
-void Unit::timeStepForGraphics(int microseconds)
-{
-	for (auto& pair : _bodies) {
-		pair.second.timeStepForGraphics(microseconds);
-	}
-}
-
 void Unit::setDebugDraw(bool turnOn)
 {
 	_debugDraw = turnOn;
-	for (auto& pair : _bodies) {
-		pair.second.setDebugDraw(turnOn);
+	for (int i = 0; i < PhysicsObject::getNumBodies(); i++) {
+		PhysicsObject::getBody(i)->setDebugDraw(turnOn);
 	}
-}
-
-void Unit::setZIndex(int zIndex)
-{
-	_zIndex = zIndex;
-}
-
-void Unit::onContactBegin(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId, b2Vec2 contactNormal)
-{
-	// do nothing be default
-}
-
-void Unit::onContactEnd(Unit* otherUnit, int otherBodyId, int otherFixtureId, int thisBodyId, int thisFixtureId)
-{
-	// do nothing be default
 }
 
 void Unit::timeElapsed(long long microseconds)
 {
 	TimableObject::timeElapsed(microseconds);
 
-	for (auto& pair : _bodies) {
-		pair.second.destroyFixturesSetToDestroy();
-		if (pair.second.getIsGravityOverridden()) {
-			pair.second.applyOverriddenGravityToSelf();
+	for (int i = 0; i < PhysicsObject::getNumBodies(); i++) {
+		Body* body = PhysicsObject::getBody(i);
+		// Destroy fixtures
+		body->destroyFixturesSetToDestroy();
+		// Apply overridden gravity
+		if (body->getIsGravityOverridden()) {
+			body->applyOverriddenGravityToSelf();
 		}
+		// Advance animations
+		body->timeStepForGraphics(microseconds);
 	}
+
+	timeElapsedExtraBehavior(microseconds);
 }
 
-void Unit::regulate()
+void Unit::timeElapsedExtraBehavior(long long microseconds)
 {
-	for (auto& pair : _bodies) {
-		pair.second.regulate();
-	}
-}
-
-void Unit::push(b2Vec2 direction, float force)
-{
-	getBody(0)->push(direction.x, direction.y, force);
-}
-
-void Unit::setToDisable()
-{
-	_flagShouldDisable = true;
-}
-
-bool Unit::shouldDisable()
-{
-	return _flagShouldDisable;
-}
-
-void Unit::disable()
-{
-	for (auto& pair : _bodies) {
-		pair.second.disable();
-	}
+	// Do nothing by default. Child classes can override this.
 }
 
 bool Unit::hasEffectInQueue()
@@ -176,9 +116,12 @@ int Unit::getId()
 	return _unitId;
 }
 
-void Unit::setGravity(b2Vec2 gravity)
+void Unit::setToDisable()
 {
-	for (auto& pair : _bodies) {
-		pair.second.overrideGravity(gravity);
-	}
+	_flagShouldDisable = true;
+}
+
+bool Unit::shouldDisable()
+{
+	return _flagShouldDisable;
 }

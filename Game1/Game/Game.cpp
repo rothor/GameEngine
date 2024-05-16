@@ -180,6 +180,16 @@ void Game::loadLevel2()
 	_world.addUnitColorFlyer(-2, 4, 0xFF0000);
 	_world.addUnitColorFlyer(2, 4, 0xFF0000);*/
 
-	_graphics->cameraMoveTo(0, 0);
+	//_graphics->cameraMoveTo(0, 0);
 	_graphics->cameraSetZoomNotch(-1);
+}
+
+void Game::loadLevel3()
+{
+	_world.CreateNewWorld();
+	TimableObject::clearTimers();
+	_playerUnitId = -1;
+	_builderUnitId = -1;
+	_world.SetGravity(0, -9.81f);
+	
 }

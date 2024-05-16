@@ -18,7 +18,7 @@ class Body : public DrawableObject
 public:
 	Body();
 	Body(b2Body* body);
-	virtual std::list<DrawInstructions*>* getDrawInstructions();
+	virtual std::list<DrawInstructions*>* getDrawInstructions() override;
 	void push(bool left, bool right, bool up, bool down, float force);
 	void placeAt(float x, float y);
 	void regulate();

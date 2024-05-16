@@ -156,9 +156,6 @@ int World::tick(long long microsecondsElapsed)
 	for (auto unit : _visualUnitList) {
 		unit.second->timeStepForGraphics(microsecondsElapsed);
 	}
-	for (auto pair : _unitList) {
-		pair.second->timeStepForGraphics(microsecondsElapsed);
-	}
 	
 	return 0;
 }
@@ -375,7 +372,7 @@ void World::reloadGraphics()
 	graphicsId = _graphics->createBmpFromFile(L"res/images/EVil Wizard 2/Sprites/attack1/8.png");
 	GraphicsMap::idMap[GraphicsEnum::EvilWizardAttackOne8] = graphicsId;
 	// Bubble effect
-	loadImageGroup(L"C:/Users/jowar/My Folder/programming/C++/VS2019 projects/Game1/Game1/res/images/bubble effect/", GraphicsEnum::BubbleEffect0, 60);
+	loadImageGroup(L"res/images/bubble effect/", GraphicsEnum::BubbleEffect0, 60);
 	// Nice ground
 	std::wstring niceGroundPath = L"res/images/pixel adventure ground/";
 	loadImage(niceGroundPath + L"tl.png", GraphicsEnum::NiceGroundTopLeft);
