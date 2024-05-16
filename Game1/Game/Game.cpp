@@ -6,7 +6,7 @@ Game::Game(GraphicsInterface* giIn, KeyStateLogger* kslIn, AudioEngine* audioEng
 	GameClass(giIn, kslIn, audioEngine),
 	_world(giIn, audioEngine)
 {
-	loadLevel1();
+	loadLevel2();
 }
 
 int Game::tick(long long microsecondsElapsed)
@@ -159,7 +159,7 @@ void Game::loadLevel2()
 	int timerId = TimableObject::addTimer(1.0f, L"level2summonbutterfly");
 
 	_builderUnitId = _world.addUnitWallBuilder();
-	_playerUnitId = _world.addUnitPlayer(0, 1);
+	_playerUnitId = _world.addUnitPlayer(0, -10.0f);
 
 	_world.addUnitStaticImageVisualUnit(0, 0, 0.015f, 1.0f, { { GraphicsEnum::SpaceBg } });
 	_world.addUnitStaticImageVisualUnit(-7655.0f * 0.015f, 0, 0.015f, 1.0f, { { GraphicsEnum::SpaceBg } });
